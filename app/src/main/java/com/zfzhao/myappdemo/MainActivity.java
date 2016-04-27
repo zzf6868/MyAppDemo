@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
+    private String TAG = "MainActivity";
 
     public native String getJniStr();
 
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("MainActivity", getJniStr());
+        Log.d(TAG, getJniStr());
     }
+
+
 }
