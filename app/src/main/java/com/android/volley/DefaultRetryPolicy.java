@@ -52,7 +52,7 @@ public class DefaultRetryPolicy implements RetryPolicy {
      * Constructs a new retry policy.
      * @param initialTimeoutMs The initial timeout for the policy.
      * @param maxNumRetries The maximum number of retries.
-     * @param backoffMultiplier Backoff multiplier for the policy.
+     * @param backoffMultiplier Backoff multiplier for the policy.(对于请求失败之后的请求，并不会隔相同的时间去请求Server，不会以线性的时间增长去请求，而是一个曲线增长，一次比一次长，如果backoff因子是2，当前超时为3，即下次再请求隔6S。)
      */
     public DefaultRetryPolicy(int initialTimeoutMs, int maxNumRetries, float backoffMultiplier) {
         mCurrentTimeoutMs = initialTimeoutMs;
